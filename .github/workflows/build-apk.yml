@@ -14,12 +14,14 @@ jobs:
       - name: Baixar projeto
         uses: actions/checkout@v4
 
-      - name: Extrair projeto Android
+      - name: Reconstruir arquivos do jogo
         run: |
-          rm -rf extracted
-          mkdir -p extracted
-          unzip -q android-project.zip -d extracted
-          test -f extracted/GBA-Zombie-Apocalypse-v1.2.0-Android-Project/settings.gradle
+          mkdir -p app/src/main/assets/src
+          cat payload/game-bundle.part*.b64 > game-bundle.js.gz.b64
+          base64 --decode game-bundle.js.gz.b64 > game-bundle.js.gz
+          gzip -dc game-bundle.js.gz > app/src/main/assets/src/game-bundle.js
+          test -s app/src/main/assets/src/game-bundle.js
+          node --check app/src/main/assets/src/game-bundle.js
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -33,12 +35,11 @@ jobs:
           gradle-version: '9.5.0'
 
       - name: Compilar APK de teste
-        working-directory: extracted/GBA-Zombie-Apocalypse-v1.2.0-Android-Project
         run: gradle :app:assembleDebug --stacktrace
 
       - name: Publicar APK
         uses: actions/upload-artifact@v4
         with:
           name: GBA-Zombie-Apocalypse-v1.2.0-debug-apk
-          path: extracted/GBA-Zombie-Apocalypse-v1.2.0-Android-Project/app/build/outputs/apk/debug/app-debug.apk
+          path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
