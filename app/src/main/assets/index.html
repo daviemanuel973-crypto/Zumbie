@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="Jogo 2D de sobrevivência zumbi inspirado no Game Boy Advance." />
+  <link rel="icon" href="./public/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="./src/styles.css" />
+  <title>GBA Zombie Apocalypse</title>
+</head>
+<body>
+  <main id="app">
+    <section id="menu" class="screen active">
+      <div class="panel menu-panel">
+        <div class="logo-mark">Z</div><h1>GBA ZOMBIE APOCALYPSE</h1>
+        <p class="subtitle">Sobreviva, fortaleça sua base e escape da região.</p>
+        <div class="start-kit"><strong>CONDIÇÃO INICIAL</strong><span>Pistola 9mm: 8 tiros no pente</span><span>8 munições reserva + faca</span><span>O mundo, o loot e os perigos dependem da semente</span></div>
+        <div class="menu-options">
+          <label class="seed-row">SEMENTE <input id="seedInput" value="GBA2026" maxlength="24" /></label>
+          <label class="seed-row">DIFICULDADE <select id="difficultySelect"><option value="easy">SOBREVIVENTE</option><option value="normal" selected>PADRÃO</option><option value="hard">PESADELO</option></select></label>
+          <label class="check-row"><input id="tutorialToggle" type="checkbox" checked /> Tutorial interativo</label>
+          <label class="seed-row">SLOT <select id="slotSelect"><option value="1">SLOT 1</option><option value="2">SLOT 2</option><option value="3">SLOT 3</option></select></label>
+        </div>
+        <button id="newGameBtn" class="primary">INICIAR NOVA PARTIDA</button><button id="continueBtn">CONTINUAR SLOT 1</button><button data-open="saves">GERENCIAR SAVES</button><button data-open="help">CONTROLES</button><button data-open="credits">CRÉDITOS</button><small>v1.2.0 — PWA offline · teclado, toque e controle</small>
+      </div>
+    </section>
+    <section id="game" class="screen"><div id="gameShell">
+      <canvas id="gameCanvas" width="240" height="160" aria-label="Área de jogo"></canvas><div id="crtOverlay"></div><div id="damageFlash"></div>
+      <div id="hudTop" class="hud-strip"><div class="barbox"><span>HP</span><div class="bar"><i id="hpBar"></i></div><b id="hpText">100</b></div><div class="barbox"><span>ST</span><div class="bar"><i id="staminaBar"></i></div></div><div id="clockText">DIA 1 · 10:00</div><div id="weatherText">LIMPO</div></div>
+      <div id="hudBottom" class="hud-strip"><div id="weaponText">PISTOLA 8/8</div><div id="resourceText">MAD 0 · SUC 0</div><div id="statusText">FOME 100 · SEDE 100</div></div>
+      <canvas id="minimap" width="64" height="64"></canvas><div id="tutorialHint" class="tutorial-hint" hidden></div><div id="gamepadStatus" class="gamepad-status" hidden></div><div id="message"></div><div id="hordeBanner"></div>
+      <div id="mobileControls" aria-label="Controles móveis"><div id="joystick"><div id="stick"></div></div><div class="mobile-actions"><button id="mobileAttack" aria-label="Atacar">ATQ</button><button id="mobileInteract" aria-label="Interagir">USAR</button><button id="mobileReload" aria-label="Recarregar">REC</button><button id="mobileSprint" aria-label="Correr">COR</button></div></div>
+      <nav id="gameNav"><button data-open="inventory">MOCHILA</button><button data-open="build">BASE</button><button data-open="skills">HABIL.</button><button data-open="objectives">OBJET.</button><button data-open="codex">CÓDICE</button><button data-open="pause">PAUSA</button></nav>
+    </div></section>
+    <div id="updateBanner" class="update-banner" hidden><span>Nova versão disponível.</span><button id="applyUpdateBtn">ATUALIZAR</button><button id="dismissUpdateBtn">DEPOIS</button></div>
+    <div id="modalBackdrop" class="modal-backdrop" hidden><section id="modal" class="panel modal" role="dialog" aria-modal="true"><header><h2 id="modalTitle">MENU</h2><button id="closeModal" aria-label="Fechar">X</button></header><div id="modalContent"></div></section></div>
+    <input id="saveImportInput" type="file" accept="application/json,.json" hidden />
+  </main>
+  <script src="./src/game-bundle.js"></script>
+</body>
+</html>
