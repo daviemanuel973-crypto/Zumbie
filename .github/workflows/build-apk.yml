@@ -18,7 +18,8 @@ jobs:
         run: |
           mkdir -p app/src/main/assets/src
           cat payload/game-bundle.part*.b64 > game-bundle.js.gz.b64
-          base64 --decode game-bundle.js.gz.b64 > game-bundle.js.gz
+          base64 --ignore-garbage --decode game-bundle.js.gz.b64 > game-bundle.js.gz
+          gzip -t game-bundle.js.gz
           gzip -dc game-bundle.js.gz > app/src/main/assets/src/game-bundle.js
           test -s app/src/main/assets/src/game-bundle.js
           node --check app/src/main/assets/src/game-bundle.js
