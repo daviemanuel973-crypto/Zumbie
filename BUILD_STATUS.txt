@@ -1,10 +1,1 @@
-GBA Zombie Apocalypse Android v1.2.2
-
-- Código web: lint, build, testes de núcleo e testes de runtime aprovados.
-- Geração procedural: 200 sementes aprovadas.
-- Morte: slot derrotado, tela de resultado e retorno ao checkpoint testados.
-- Sono: passagem de tempo e interrupção por horda testadas.
-- Descarte: item no chão testado.
-- Fugas: ativação física, defesa e vitória testadas.
-- Multidão: separação entre infectados testada.
-- Projeto Android: versão 122 e assinatura debug estável.
+v1.3.0 preparada. Lint, testes de núcleo/runtime, build web e playtest Chromium por injeção aprovados. A compilação Android deve ser validada pelo GitHub Actions.
