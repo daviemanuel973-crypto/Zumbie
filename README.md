@@ -1,37 +1,48 @@
-# GBA Zombie Apocalypse — Android v1.2.1
+# GBA Zombie Apocalypse — projeto Android v1.2.2
 
-Projeto Android nativo com `WebView`, funcionamento offline e três slots de salvamento.
-
-## Correções da v1.2.1
-
-- Todas as construções procedurais recebem uma entrada acessível.
-- Saves antigos têm entradas bloqueadas reparadas automaticamente.
-- Corredores e outros infectados pequenos não ocupam mais o centro do jogador.
-- Tiros e golpes de faca funcionam a queima-roupa.
-- Cada rota de fuga possui três componentes obrigatórios e uma peça sobressalente.
-- Peças guardadas em baús contam para rádio e veículo.
-- Saves sem componentes suficientes recebem uma caixa de reparo acessível.
+Aplicativo Android nativo com WebView e jogo incorporado para funcionamento offline. A versão 1.2.2 é uma atualização de estabilidade e mantém a assinatura fixa de testes introduzida na v1.2.1.
 
 ## Identificação
 
 - Application ID de lançamento: `com.bl4zers.gbzombie`
 - APK debug: `com.bl4zers.gbzombie.debug`
-- Version code: `121`
-- Version name: `1.2.1`
+- Version code: `122`
+- Version name: `1.2.2`
+- Orientação: horizontal
 - Android mínimo: Android 8.0 / API 26
 - Android alvo: API 36
 
-## Gerar o APK
+## Principais correções
 
-1. Abra a aba **Actions**.
+- Estado de morte e recuperação no último abrigo.
+- Sono processando tempo, fome, sede, clima, dias e hordas.
+- Abrigo salva e registra checkpoint, sem cura infinita.
+- Itens descartados são colocados no chão.
+- Rotas de fuga exigem interação física e defesa temporizada.
+- Separação entre infectados aglomerados.
+- Reparo de armas não desperdiça sucata.
+- Remapeamento impede conflitos e teclas reservadas.
+- Missão de madeira usa total coletado durante a campanha.
+- Autoaim respeita paredes e estruturas.
+
+## Abrir no Android Studio
+
+1. Abra esta pasta como projeto.
+2. Aguarde a instalação do Android SDK 36 e dos Build Tools solicitados.
+3. Selecione o módulo `app`.
+4. Use **Build > Build APK(s)**.
+5. O APK debug ficará em `app/build/outputs/apk/debug/app-debug.apk`.
+
+## Gerar pelo GitHub Actions
+
+1. Abra a aba **Actions** do repositório.
 2. Selecione **Gerar APK Android**.
 3. Clique em **Run workflow**.
-4. Baixe o artefato `GBA-Zombie-Apocalypse-v1.2.1-debug-apk`.
+4. Baixe o artefato `GBA-Zombie-Apocalypse-v1.2.2-debug-apk`.
 
-O workflow também é executado automaticamente a cada atualização da branch `main`.
+## Assinatura e saves
 
-## Atualização e saves
-
-Instale o novo APK sobre o anterior, sem desinstalar. A build 1.2.1 migra o save v1.2.0 e corrige componentes ou entradas inacessíveis. Para segurança, exporte o slot antes da atualização.
-
-O APK debug é adequado para testes. Uma publicação permanente exige APK/AAB assinado com a mesma chave `.jks` em todas as versões.
+- O APK debug usa `app/debug.keystore`, uma chave fixa apenas para builds de teste.
+- Builds v1.2.1 estáveis e posteriores podem ser instaladas por cima umas das outras.
+- Desinstalar o aplicativo apaga os dados locais; exporte o save antes.
+- Para publicação real, use uma chave privada de lançamento fora do repositório.

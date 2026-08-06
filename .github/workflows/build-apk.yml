@@ -14,7 +14,7 @@ jobs:
       - name: Baixar projeto
         uses: actions/checkout@v4
 
-      - name: Reconstruir jogo v1.2.0 e aplicar patch v1.2.1
+      - name: Reconstruir jogo e aplicar atualizações
         run: |
           mkdir -p app/src/main/assets/src
           cat \
@@ -36,9 +36,24 @@ jobs:
           gzip -dc game-bundle-v121.patch.gz > game-bundle-v121.patch
           patch app/src/main/assets/src/game-bundle.js < game-bundle-v121.patch
 
+          cat \
+            payload/game-bundle-v122.patch.part00.b64 \
+            payload/game-bundle-v122.patch.part01.b64 \
+            payload/game-bundle-v122.patch.part02.b64 \
+            payload/game-bundle-v122.patch.part03.b64 \
+            > game-bundle-v122.patch.gz.b64
+          base64 --decode game-bundle-v122.patch.gz.b64 > game-bundle-v122.patch.gz
+          gzip -t game-bundle-v122.patch.gz
+          gzip -dc game-bundle-v122.patch.gz > game-bundle-v122.patch
+          patch app/src/main/assets/src/game-bundle.js < game-bundle-v122.patch
+
+          sed -i 's/v1\.2\.1/v1.2.2/g' app/src/main/assets/index.html
           test -s app/src/main/assets/src/game-bundle.js
           node --check app/src/main/assets/src/game-bundle.js
-          echo "f55c49d3f8f5ec8414ec896a80931a403fa44e87cf60c4be7dc439ef226eb2d6  app/src/main/assets/src/game-bundle.js" | sha256sum --check
+          echo "7b5920e77c42017cdcb4109c52843365b7603a3cbb5cc72588d7ed69ba802399  app/src/main/assets/src/game-bundle.js" | sha256sum --check
+          grep -q "const BUILD_VERSION = '1.2.2'" app/src/main/assets/src/game-bundle.js
+          grep -q "versionCode 122" app/build.gradle
+          grep -q "v1.2.2" app/src/main/assets/index.html
 
       - name: Configurar Java 17
         uses: actions/setup-java@v4
@@ -57,6 +72,6 @@ jobs:
       - name: Publicar APK
         uses: actions/upload-artifact@v4
         with:
-          name: GBA-Zombie-Apocalypse-v1.2.1-debug-apk
+          name: GBA-Zombie-Apocalypse-v1.2.2-debug-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
