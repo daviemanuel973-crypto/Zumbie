@@ -1,0 +1,12 @@
+name: Validar APK Android v1.2.2
+
+on:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Informação
+        run: echo "A compilação principal é executada por build-apk.yml"
