@@ -41,3 +41,37 @@ h1{font-size:clamp(20px,4vw,31px);color:var(--amber);margin:3px 0;letter-spacing
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 
 .inventory-summary{background:#06101c;border:2px solid #334155;padding:8px;margin-bottom:8px}.equipment-strip{display:grid;grid-template-columns:repeat(2,1fr);gap:4px;font-size:10px;color:#cbd5e1}.map-wrap{display:grid;place-items:center;background:#020617;border:3px solid #475569;padding:6px}.map-wrap canvas{width:min(72vw,520px);height:min(72vw,520px);max-height:62vh;image-rendering:pixelated}.map-legend{display:flex;gap:9px;flex-wrap:wrap;padding:8px;font-size:11px}.event-card{border-color:#f43f5e}.structure-level{color:#fde68a}.floating-damage{font-weight:900}.card.compact-card{min-height:auto}.job-assigned{border-color:#4ade80}.inventory-full{color:#fda4af}.attachment-list{display:grid;gap:5px;margin-top:7px}.mobile-aim-note{color:#fda4af}
+
+/* v1.4.0 — HUD contextual e otimização móvel */
+#survivalChips{position:absolute;right:8px;top:134px;display:grid;gap:3px;pointer-events:none;justify-items:end}
+.status-chip{background:#07111de8;border:1px solid #f6bd60;padding:3px 5px;font-size:8px;text-shadow:1px 1px #000}.status-chip.danger{border-color:#fb7185;color:#fecdd3}
+#bossHud{position:absolute;top:8px;left:50%;width:min(52%,300px);transform:translateX(-50%);background:#020617dc;border:2px solid #f87171;padding:3px 5px;text-align:center;font-size:8px;pointer-events:none}#bossHud[hidden]{display:none}#bossHud span{color:#fecaca;font-weight:900}#bossHud div{height:5px;background:#3f0d18;margin-top:2px}#bossHud i{display:block;height:100%;width:100%;background:#ef4444}
+#contextPrompt{position:absolute;left:50%;bottom:50px;transform:translateX(-50%);background:#020617dc;border:1px solid #a7f3d0;padding:3px 7px;font-size:8px;pointer-events:none;white-space:nowrap}#contextPrompt[hidden]{display:none}
+#mobileMenuButton{display:none;position:absolute;right:max(8px,env(safe-area-inset-right));top:max(7px,env(safe-area-inset-top));z-index:8;background:#07111ddd;color:#fff;border:2px solid #94a3b8;padding:7px 9px;font-size:9px;font-weight:900}
+.campaign-header,.community-summary{background:#06101c;border:2px solid #475569;padding:10px;margin-bottom:8px}.campaign-header strong,.community-summary h3{color:#fde68a}.ending-grid{margin-top:10px}.ending-grid h3{grid-column:1/-1}
+body.minimal-hud #resourceText,body.minimal-hud #statusText{opacity:.16;transition:opacity .15s}body.minimal-hud #resourceText:hover,body.minimal-hud #statusText:hover{opacity:1}
+body[data-perf="low"] #crtOverlay{display:none!important}body[data-perf="low"] #damageFlash{transition:none}body[data-perf="low"] .status-chip{box-shadow:none}
+#minimap{display:none}#minimap.force-visible{display:block}
+@media(pointer:fine) and (min-width:781px){#minimap{display:block}body.minimal-hud #minimap:not(.force-visible){opacity:.35}}
+@media(pointer:coarse),(max-width:780px){
+  #gameNav{display:none}
+  #mobileMenuButton{display:block}
+  #hudBottom{display:none}
+  #weatherText{display:none}
+  #clockText{font-size:8px}
+  #hudTop{right:58px;gap:3px}
+  #hudTop .barbox:nth-child(2){display:none}
+  #survivalChips{top:36px;right:8px}
+  #contextPrompt{bottom:7px}
+  #message{bottom:34px;max-width:74%;overflow:hidden;text-overflow:ellipsis;font-size:9px}
+  #hordeBanner{top:12%;font-size:18px;max-width:84%;text-align:center}
+  #minimap{display:none!important}
+  #minimap.force-visible{display:block!important;width:58px;height:58px;top:34px;right:8px;opacity:.75}
+  .tutorial-hint{max-width:48%;font-size:7px;opacity:.82}
+  .modal-backdrop{padding:6px}.modal{width:98vw;max-height:94vh;padding:12px}.modal header{top:-12px}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(132px,1fr))}.card{min-height:62px;padding:7px}.card p{font-size:10px}
+  #bossHud{top:4px;width:46%;font-size:7px}
+}
+@media(max-height:480px) and (pointer:coarse){
+  #hudTop{top:3px}.barbox{padding:1px 3px}.bar{height:5px}.mobile-actions{bottom:38px;right:92px}.mobile-actions button{transform:scale(.72)}#joystick,#aimJoystick{bottom:36px;transform:scale(.78)}#joystick{transform-origin:left bottom}#aimJoystick{transform-origin:right bottom}#mobileMenuBtton{padding:5px 7px}
+}

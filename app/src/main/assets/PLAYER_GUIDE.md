@@ -1,11 +1,45 @@
-# Guia rápido — v1.3.0
+# Guia do jogador — v1.4.0
 
-Explore prédios diferentes para encontrar loot adequado: hospitais oferecem remédios; delegacias, armas e coletes; oficinas, sucata e peças; mercados, alimentos; e postos militares, equipamentos raros.
+## Controles de PC
 
-A mochila possui limite de espaços. Equipe mochilas maiores, armaduras e botas pelo inventário. Acessórios podem ser instalados em armas compatíveis na bancada.
+- Movimento: `WASD` ou setas
+- Atacar: clique esquerdo ou `Espaço`
+- Interagir/entrar no veículo: `E`
+- Recarregar: `R`
+- Correr: `Shift`
+- Molotov: `Q`
+- Armas rápidas: `1` a `5`
+- Mochila: `Tab`
+- Construção: `B`
+- Objetivos/campanha: `O`
+- Mapa: `M`
+- Códice: `C`
+- Pausa: `Esc`
 
-Abra o mapa com `M`. A área explorada fica visível e os prédios descobertos recebem marcadores. Torres revelam uma região maior e localizam eventos ativos.
+## Celular
 
-Melhore estruturas pelo menu de construção. Sobreviventes resgatados podem ser designados no menu de sobreviventes para produzir recursos, curar, reparar a base ou defender a região.
+- Analógico esquerdo: movimento
+- Analógico direito: mira manual
+- Botões contextuais: atacar, usar, recarregar e correr
+- Um único botão `MENU` abre mochila, base, mapa, campanha, comunidade, configurações e pausa
+- HUD permanente reduzido a vida, arma e alertas importantes
 
-No celular, use o analógico esquerdo para andar e o direito para mirar. O disparo pelo analógico direito pode ser ativado nas configurações.
+## Campanha
+
+Explore regiões, investigue locais especiais, lide com facções e complete capítulos. Saqueadores usam armas e cobertura; chefes protegem áreas narrativas e recursos raros.
+
+## Infecção
+
+Mordidas podem elevar a infecção. Antibióticos atrasam sintomas, antídotos reduzem estágios e a enfermaria melhora o tratamento. Estágios altos afetam stamina, movimento e visão.
+
+## Comunidade
+
+Sobreviventes consomem comida e água, produzem recursos e alteram moral e segurança. Atribua funções adequadas e mantenha estruturas essenciais funcionando.
+
+## Veículo
+
+Repare, abasteça e dirija o veículo. Ele possui combustível, integridade e armazenamento, produz ruído e pode atropelar inimigos. Também participa de rotas de fuga.
+
+## Desempenho móvel
+
+Em Configurações, use o perfil `BAIXO` para aparelhos modestos. Ele reduz efeitos, frequência de IA distante, quantidade de hostis processados e elementos visuais não essenciais. O minimapa pode permanecer oculto para liberar tela e processamento.

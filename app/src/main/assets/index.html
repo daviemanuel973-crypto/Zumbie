@@ -42,7 +42,7 @@
         <button data-open="saves">GERENCIAR SAVES</button>
         <button data-open="help">CONTROLES</button>
         <button data-open="credits">CRÉDITOS</button>
-        <small>v1.3.0 — exploração, equipamentos, base evolutiva e mira dupla</small>
+        <small>v1.4.0 — campanha, mundo vivo, veículos e facções</small>
       </div>
     </section>
 
@@ -63,6 +63,13 @@
           <div id="statusText">FOME 100 · SEDE 100</div>
         </div>
         <canvas id="minimap" width="64" height="64"></canvas>
+        <div id="survivalChips" aria-live="polite">
+          <span id="infectionChip" class="status-chip" hidden></span>
+          <span id="communityChip" class="status-chip" hidden></span>
+        </div>
+        <div id="bossHud" hidden><span>CHEFE</span><div><i></i></div></div>
+        <div id="contextPrompt" hidden></div>
+        <button id="mobileMenuButton" aria-label="Abrir menu">MENU</button>
         <div id="tutorialHint" class="tutorial-hint" hidden></div>
         <div id="gamepadStatus" class="gamepad-status" hidden></div>
         <div id="message"></div>

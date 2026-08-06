@@ -1,1 +1,8 @@
-v1.3.0 preparada. Lint, testes de núcleo/runtime, build web e playtest Chromium por injeção aprovados. A compilação Android deve ser validada pelo GitHub Actions.
+v1.4.0 preparada em 6 de agosto de 2026.
+
+- Código-fonte: lint e testes aprovados.
+- Geração procedural: aprovada em 200 sementes.
+- Save v6 e migrações: aprovados.
+- Bundle multiplataforma: reconstruído e verificado por SHA-256.
+- Android, Windows e Linux: compilados pelos workflows correspondentes neste commit.
+- Playtest Chromium local: indisponível por bloqueio administrativo de páginas locais no ambiente de teste.

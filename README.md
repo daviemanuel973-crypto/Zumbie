@@ -1,13 +1,29 @@
-# GBA Zombie Apocalypse Android v1.3.0
+# GBA Zombie Apocalypse v1.4.0
 
-Projeto Android nativo com WebView e jogo offline incorporado.
+Jogo 2D de sobrevivência zumbi para Android, Windows, Linux e navegador.
+
+## Android
 
 - Application ID: `com.bl4zers.gbzombie`
 - Debug ID: `com.bl4zers.gbzombie.debug`
-- Version code: `130`
-- Version name: `1.3.0`
+- Version code: `140`
+- Version name: `1.4.0`
 - Android mínimo: API 26
+- Assinatura de testes preservada desde a v1.2.1
 
-A chave `app/debug.keystore` mantém compatibilidade de atualização com as builds de teste v1.2.1 e v1.2.2.
+## PC
 
-Compile com GitHub Actions ou Android Studio. O APK fica em `app/build/outputs/apk/debug/app-debug.apk`.
+O workflow **Gerar versões para PC** produz:
+
+- executável portátil `.exe` para Windows x64;
+- `AppImage` para Linux x64.
+
+A aplicação desktop usa Electron com isolamento de contexto, sandbox e Node.js desativado dentro da página do jogo.
+
+## Conteúdo da v1.4.0
+
+Campanha, facções, saqueadores, chefes, infecção, comunidade, locais especiais, regiões, veículo dirigível, múltiplos finais e perfil móvel de baixo consumo com HUD contextual.
+
+## Automação
+
+Os workflows reconstroem o mesmo bundle para todas as plataformas e verificam seu SHA-256 antes de gerar os artefatos.

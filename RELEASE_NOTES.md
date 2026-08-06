@@ -1,19 +1,50 @@
-# GBA Zombie Apocalypse v1.3.0
+# Notas de lançamento — v1.4.0
 
-A v1.3.0 amplia a profundidade da campanha e melhora especialmente a experiência mobile.
+A v1.4.0 expande a sobrevivência para uma campanha com mundo vivo e mantém o mesmo conteúdo em Android, Windows, Linux e navegador.
 
-## Novidades
+## Campanha e mundo
 
-- Segundo analógico para mira manual.
-- Mapa com névoa de guerra e marcadores.
-- Edifícios especializados e loot temático.
-- Limite de inventário, mochilas e equipamentos.
-- Armaduras e acessórios para armas.
-- Estruturas evolutivas e cinco novas construções.
-- Empregos para sobreviventes resgatados.
-- Eventos físicos temporários no mapa.
-- Críticos, recuo e feedback audiovisual de combate.
+- capítulos e objetivos narrativos;
+- transmissões, registros e locais especiais;
+- regiões com identidade e perigos próprios;
+- facções e reputação;
+- saqueadores armados e acampamentos;
+- chefes ligados a pontos de interesse;
+- eventos e finais alternativos.
+
+## Sobrevivência
+
+- sistema de infecção por estágios;
+- antibióticos, antídoto e tratamento;
+- comunidade com moral, comida, água e segurança;
+- consumo e produção diária;
+- sobreviventes trabalhando nas estruturas;
+- consequências para decisões e perdas.
+
+## Veículos
+
+- veículo reparável e dirigível;
+- combustível, integridade e armazenamento;
+- atropelamento e ruído;
+- rota de fuga e suporte à exploração.
+
+## Mobile
+
+- HUD reduzido ao essencial;
+- informações contextuais no lugar de painéis permanentes;
+- menus recolhidos em um único botão;
+- perfil gráfico adaptativo;
+- frequência reduzida de IA fora da área próxima;
+- limites de efeitos e entidades conforme a capacidade do aparelho;
+- opções para ocultar minimapa, vibração e efeitos não essenciais.
+
+## PC
+
+- executável portátil para Windows x64;
+- AppImage para Linux x64;
+- tela cheia, teclado, mouse e gamepad;
+- saves locais e compatibilidade com o formato v6.
 
 ## Compatibilidade
 
-Saves da v1.2.2 são migrados automaticamente. A assinatura Android de testes permanece a mesma para permitir atualização por cima da instalação anterior.
+Saves das versões anteriores são migrados para o formato v6. Faça uma exportação de segurança antes de atualizar.

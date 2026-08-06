@@ -1,0 +1,58 @@
+name: Gerar versões para PC
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            script: dist:win
+            artifact: GBA-Zombie-Apocalypse-v1.4.0-Windows-x64
+            files: desktop/release/*.exe
+          - os: ubuntu-latest
+            script: dist:linux
+            artifact: GBA-Zombie-Apocalypse-v1.4.0-Linux-x64
+            files: desktop/release/*.AppImage
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    steps:
+      - name: Baixar projeto
+        uses: actions/checkout@v4
+
+      - name: Reconstruir e validar jogo v1.4.0
+        shell: bash
+        run: bash tools/reconstruct-v140.sh
+
+      - name: Preparar conteúdo desktop
+        shell: bash
+        run: |
+          rm -rf desktop/game
+          mkdir -p desktop/game
+          cp -R app/src/main/assets/. desktop/game/
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Instalar empacotador
+        working-directory: desktop
+        run: npm install --no-audit --no-fund
+
+      - name: Gerar aplicativo nativo
+        working-directory: desktop
+        run: npm run ${{ matrix.script }}
+
+      - name: Publicar aplicativo
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.artifact }}
+          path: ${{ matrix.files }}
+          if-no-files-found: error

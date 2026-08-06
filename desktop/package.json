@@ -1,0 +1,20 @@
+{
+  "name":"gba-zombie-apocalypse-pc",
+  "version":"1.4.0",
+  "description":"GBA Zombie Apocalypse para Windows e Linux",
+  "main":"main.cjs",
+  "author":"BL4Z3RS Channel",
+  "license":"MIT",
+  "private":true,
+  "scripts":{"start":"electron .","dist:win":"electron-builder --win portable --x64","dist:linux":"electron-builder --linux AppImage --x64"},
+  "devDependencies":{"electron":"43.2.0","electron-builder":"26.15.3"},
+  "build":{
+    "appId":"com.bl4zers.gbzombie.pc",
+    "productName":"GBA Zombie Apocalypse",
+    "asar":true,
+    "directories":{"output":"release"},
+    "files":["main.cjs","game/**/*","package.json"],
+    "win":{"target":[{"target":"portable","arch":["x64"]}],"artifactName":"GBA-Zombie-Apocalypse-v${version}-Windows-x64.${ext}"},
+    "linux":{"target":[{"target":"AppImage","arch":["x64"]}],"category":"Game","artifactName":"GBA-Zombie-Apocalypse-v${version}-Linux-x64.${ext}"}
+  }
+}
